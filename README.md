@@ -15,3 +15,21 @@ While tools like `gobuster` or `ffuf` are industry standards, this Python-based 
 git clone [https://github.com/anthony-rizzo-cs/VulnScan.git](https://github.com/anthony-rizzo-cs/VulnScan.git)
 cd VulnScan
 pip install requests
+
+Usage
+
+You can run the script using its built-in fallback list of common administrative paths, or pass a massive dictionary file (like SecLists' raft-large-directories.txt) for a full audit.
+
+Basic Scan (Using Default Paths):
+python VulnScan.py -u [https://target-application.local](https://target-application.local)
+
+Advanced Scan (Custom Wordlist & Thread Tuning):
+python VulnScan.py -u [https://target-application.local](https://target-application.local) -w common.txt -t 25
+
+Available Arguments
+
+    -u, --url: (Required) The target base URL.
+
+    -w, --wordlist: (Optional) Path to a text file containing line-separated paths to test.
+
+    -t, --threads: (Optional) The number of concurrent worker threads. Defaults to 10.
